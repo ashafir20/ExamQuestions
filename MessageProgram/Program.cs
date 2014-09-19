@@ -8,7 +8,21 @@ namespace MessageProgram
     {
         public static void Main(string[] args)
         {
+            var messageHandler = new MessageHandler();
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.google.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.google.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
 
+            var results =  messageHandler.GetActiveMessages();
+
+            //check results
         }
     }
 
