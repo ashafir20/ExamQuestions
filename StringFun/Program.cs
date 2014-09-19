@@ -10,11 +10,44 @@ namespace StringFun
 	{
 		public static void Main(string[] args)
 		{
-			Permutations("", "ABCD");
-			SubStrings();
+			//Permutations("", "ABCD");
+
+            //comb1("abc");
+            //comb2("abcd");
+
 
 		    Console.ReadLine();
 		}
+
+        // print all subsets of the characters in s
+	    public static void comb1(String s)
+	    {
+	        comb1("", s);
+	    }
+
+        // print all subsets of the remaining elements, with given prefix 
+        private static void comb1(String prefix, String s)
+        {
+            if (s.Length > 0) 
+            {
+                Console.WriteLine(prefix + s[0]);
+                comb1(prefix + s[0], s.Substring(1));
+                comb1(prefix, s.Substring(1));
+            }
+        }
+
+        // alternate implementation
+	    public static void comb2(String s) 
+        {
+	        comb2("", s);
+	    }
+
+        private static void comb2(String prefix, String s)
+        {
+            Console.WriteLine(prefix);
+            for (int i = 0; i < s.Length; i++)
+            comb2(prefix + s[i], s.Substring(i + 1));
+        }  
 
 		public static void Permutations(string prefix, string str)
 		{
@@ -31,6 +64,22 @@ namespace StringFun
 				}
 			}
 		}
+
+        public static void SubStrings2()
+        {
+            var text = "abc";
+
+            var items =
+             from i in Enumerable.Range(0, text.Length)
+             from j in Enumerable.Range(0, text.Length - i + 1)
+             select text.Substring(i, j);
+
+            foreach (var s in items)
+            {
+                Console.WriteLine(s);
+            }
+
+        }
 
 		public static void SubStrings()
 		{
