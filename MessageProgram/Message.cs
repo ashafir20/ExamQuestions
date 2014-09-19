@@ -1,4 +1,4 @@
-﻿namespace binaryTreeTest
+﻿namespace MessageProgram
 {
     public class Message
     {

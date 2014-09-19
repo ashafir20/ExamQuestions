@@ -10,10 +10,10 @@ namespace StringFun
 	{
 		public static void Main(string[] args)
 		{
-			//Permutations("", "ABCD");
+			Permutations("", "ABCD");
 
             //comb1("abc");
-            //comb2("abcd");
+            comb2("abcd");
 
 
 		    Console.ReadLine();
@@ -46,7 +46,9 @@ namespace StringFun
         {
             Console.WriteLine(prefix);
             for (int i = 0; i < s.Length; i++)
-            comb2(prefix + s[i], s.Substring(i + 1));
+            {
+                comb2(prefix + s[i], s.Substring(i + 1));
+            }   
         }  
 
 		public static void Permutations(string prefix, string str)
@@ -64,22 +66,6 @@ namespace StringFun
 				}
 			}
 		}
-
-        public static void SubStrings2()
-        {
-            var text = "abc";
-
-            var items =
-             from i in Enumerable.Range(0, text.Length)
-             from j in Enumerable.Range(0, text.Length - i + 1)
-             select text.Substring(i, j);
-
-            foreach (var s in items)
-            {
-                Console.WriteLine(s);
-            }
-
-        }
 
 		public static void SubStrings()
 		{

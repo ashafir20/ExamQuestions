@@ -9,6 +9,7 @@ using System.Collections;
 // Test code
 // Test performance and delete method
 using BinaryTree;
+using MessageProgram;
 
 namespace binaryTreeTest
 {
