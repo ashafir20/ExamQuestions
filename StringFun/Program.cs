@@ -29,8 +29,17 @@ namespace StringFun
 
             //var arr = new string[] {"A", "B", "C"};
             var arr = new string[] {"AB", "BC", "CDG"};
-            permute(arr, 0);
+            //permute(arr, 0);
 
+            //var result = strNumToIntNum("121");
+            //Console.WriteLine(result);
+
+            //result = strNumToIntNum2("121");
+            //Console.WriteLine(result);
+
+
+            var result = intToString(124);
+            Console.WriteLine(result);
 
             Console.ReadLine();
         }
@@ -70,7 +79,55 @@ namespace StringFun
             b = tmp;
         }
 
+/*
+        לכתוב פונקציה שמקבלת מחרוזת שמייצגת מספר והופכת אותה למספר.
+נתתי פתרון שעובר על המחרוזת משמאל לימין, הוא ביקש גם פתרון שעובר על המחרוזת מימין לשמאל ושאל איזה פתרון יותר יעיל.*/
 
+        public static int strNumToIntNum(string strNumber)
+        {
+            int result = 0;
+            //from left to right
+            for (int i = 0; i < strNumber.Length; i++)
+            {
+                result += (strNumber[i] - '0') * (int)Math.Pow(10, (strNumber.Length - i - 1));
+            }
+
+            return result;
+        }
+
+        public static int strNumToIntNum2(string strNumber)
+        {
+            int result = 0;
+            //from right to left
+            for (int i = strNumber.Length - 1; i >= 0; i--)
+            {
+                result += (strNumber[i] - '0') * (int)Math.Pow(10, (strNumber.Length - i - 1));
+            }
+
+            return result;
+        }
+
+        public static string intToString(int num)
+        {
+            string result = null;
+            int length = 0;
+            var savedNum = num;
+
+            //calc length of num
+            do
+            {
+                length++;
+            } while ((num = num / 10) > 0);
+
+
+            for (int i = 0; i < length; i++)
+            {
+                result += savedNum / (int)Math.Pow(10, length - i - 1) % 10;
+            }
+
+            return result;
+        }
+        
         // The main function that prints all combinations of size r
         // in arr[] of size n. This function mainly uses combinationUtil()
 /*        public static void printCombination(int[] arr, int n, int size)
