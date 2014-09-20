@@ -38,10 +38,82 @@ namespace StringFun
             //Console.WriteLine(result);
 
 
-            var result = intToString(124);
-            Console.WriteLine(result);
+            //var result = intToString(124);
+            //Console.WriteLine(result);
+
+
+            //var firstunique = findFirstUniqueNumberInArray(new[] {2, 8, 4, 4, 2});
+            //Console.WriteLine(firstunique);         
+   
+            var firstunique = findFirstUniqueNumberInArray2(new[] {2, 8, 4, 4, 2});
+            Console.WriteLine(firstunique);
 
             Console.ReadLine();
+        }
+
+       /* ד. נתון מערך מספרים, למצוא את המספר הראשון היחודי (ז"א למצוא את המספר הראשון שנמצא רק פעם אחת במערך). שהפתרון יהיה יעיל מבחינת סיבוכיות זמן וומקום.*/
+
+        static int findFirstUniqueNumberInArray(int [] arr)
+        {
+            //first implementation -> 2 loops o(n^2)
+            for (int i = 0; i < arr.Length; i++)
+            {
+                bool found = false;
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (i != j)
+                    {
+                        if (arr[i] == arr[j])
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!found)
+                {
+                    return arr[i];
+                }
+            }
+
+            return -1;
+        }
+
+        static int findFirstUniqueNumberInArray2(int[] arr)
+        {
+            var result = -1;
+            //second implementation -> bucket sort like (using hashMap/Dictionary)
+           /*Step 1: Store the integers in a hash map, which holds the integer as a key and the count of the number of times it appears as the value.
+             * This is generally an O(n) operation and the insertion / updating of elements in the hash table should be constant time, on the average.
+             * If an integer is found to appear more than twice, you really don't have to increment the usage count further (if you don't want to).
+            Step 2: Perform a second pass over the integers. Look each up in the hash map and the first one with an appearance count of one is the one you were looking for
+            * (i.e., the first single appearing integer). This is also O(n), making the entire process O(n).*/
+
+            var dictinary = new Dictionary<int, int>();
+
+            foreach (var val in arr)
+            {
+                if (dictinary.ContainsKey(val))
+                {
+                    dictinary[val] += 1;
+                }
+                else
+                {
+                    dictinary.Add(val, 1);
+                }
+            }
+
+            foreach (var pair in dictinary)
+            {
+                if (pair.Value == 1)
+                {
+                    result = pair.Key;
+                    break;
+                }
+            }
+
+            return result;
         }
 
         static void permute(string[] array, int index)
