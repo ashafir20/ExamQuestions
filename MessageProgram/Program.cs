@@ -12,17 +12,21 @@ namespace MessageProgram
             messageHandler.RecieveMessage(new Message { SenderUrl = "www.google.co.il" });
             messageHandler.RecieveMessage(new Message { SenderUrl = "www.google.co.il" });
             messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
-            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam1.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam2.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam3.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam4.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam5.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam6.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam7.co.il" });
+            messageHandler.RecieveMessage(new Message { SenderUrl = "www.stam8.co.il" });
 
             var results =  messageHandler.GetActiveMessages();
 
             //check results
+            Console.WriteLine(results.Count);
+            Console.WriteLine(results.ElementAt(0));
+
+            Console.ReadLine();
         }
     }
 
@@ -36,13 +40,13 @@ namespace MessageProgram
             _dictionary = new Dictionary<string, int>();
         }
 
-        public List<string> GetActiveMessages()
+        public ISet<string> GetActiveMessages()
         {
-            var results = new List<string>();
+            var results = new HashSet<string>();
             foreach (var pair in _dictionary)
             {
-                var percent = pair.Value / _messageCount;
-                if (percent > 0.1)
+                decimal percent = (decimal)pair.Value / (decimal)_messageCount;
+                if (percent > 0.1M)
                 {
                     results.Add(pair.Key);
                 }
@@ -58,7 +62,7 @@ namespace MessageProgram
                 if (message.SenderUrl != null)
                 {
                     _messageCount++;
-                    if (_dictionary.ContainsKey(message.SenderUrl))
+                    if (!_dictionary.ContainsKey(message.SenderUrl))
                     {
                         _dictionary.Add(message.SenderUrl, 1);
                     }
