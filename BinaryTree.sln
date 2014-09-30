@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringFun", "StringFun\Stri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageProgram", "MessageProgram\MessageProgram.csproj", "{32B49F13-1988-424D-A65B-7F03246D78C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{1922401D-276F-4ABF-8629-178CB7389D7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{32B49F13-1988-424D-A65B-7F03246D78C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B49F13-1988-424D-A65B-7F03246D78C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B49F13-1988-424D-A65B-7F03246D78C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1922401D-276F-4ABF-8629-178CB7389D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1922401D-276F-4ABF-8629-178CB7389D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1922401D-276F-4ABF-8629-178CB7389D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1922401D-276F-4ABF-8629-178CB7389D7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

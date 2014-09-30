@@ -1,15 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Collections;
 
 // Test code
 // Test performance and delete method
 using BinaryTree;
-using MessageProgram;
+
+public class Message
+{
+    public string SenderUrl { get; set; }
+    public string RecieverUrl { get; set; }
+}
 
 namespace binaryTreeTest
 {

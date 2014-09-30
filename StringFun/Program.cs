@@ -16,6 +16,8 @@ namespace StringFun
             //comb1("abc");
             //comb2("abcd");
 
+            SubSets("abcd");
+
             //Permutations(new string[] { "A", "B", "C", "D" });
 
             //Permutations(new string[] { "A", "B", "C" });
@@ -29,7 +31,7 @@ namespace StringFun
 
             //var arr = new string[] {"A", "B", "C"};
             var arr = new string[] {"AB", "BC", "CDG"};
-            //permute(arr, 0);
+            permute(arr, 0);
 
             //var result = strNumToIntNum("121");
             //Console.WriteLine(result);
@@ -45,8 +47,8 @@ namespace StringFun
             //var firstunique = findFirstUniqueNumberInArray(new[] {2, 8, 4, 4, 2});
             //Console.WriteLine(firstunique);         
    
-            var firstunique = findFirstUniqueNumberInArray2(new[] {2, 8, 4, 4, 2});
-            Console.WriteLine(firstunique);
+            //var firstunique = findFirstUniqueNumberInArray2(new[] {2, 8, 4, 4, 2});
+           // Console.WriteLine(firstunique);
 
             Console.ReadLine();
         }
@@ -307,9 +309,9 @@ namespace StringFun
             }
         }
 
-        public static void SubStrings()
+        public static void SubSets(string str)
         {
-            string set = "abcd";
+            string set = str;
 
             // Init list
             var subsets = new List<string>();
@@ -334,9 +336,10 @@ namespace StringFun
             // Add in the last element
             subsets.Add(set[set.Length - 1].ToString());
             subsets.Add(String.Empty);
-            subsets.Sort();
+            //subsets.Sort();
 
             Console.WriteLine(string.Join(Environment.NewLine, subsets.ToArray()));
+            Console.WriteLine(subsets.ToArray().Count());
         }
     }
 }

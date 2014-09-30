@@ -70,7 +70,7 @@ namespace BinaryTree
 		/// <param name="name">Name of node to locate</param>
 		/// <returns>Returns null if it fails to find the node, else returns reference to node</returns>
 		public TTreeNode findSymbol (string name) {
-			  TTreeNode np = root;
+/*			  TTreeNode np = root;
 			  int cmp;
 			  while (np != null) {
 					cmp = String.Compare (name, np.name);
@@ -82,8 +82,30 @@ namespace BinaryTree
 					else
 					   np = np.right;
 			  }
-			  return null;  // Return null to indicate failure to find name
+			  return null;  // Return null to indicate failure to find name*/
+
+            return findSymbolHelper(name, root);
+
 		}
+
+	    public TTreeNode findSymbolHelper(string name, TTreeNode node)
+	    {
+	        if (node == null || node.name == name)
+	        {
+	            return node;
+	        }
+
+            var cmp = String.Compare(name, node.name);
+	        if (cmp < 0)
+	        {
+                return findSymbolHelper(name, node.left);
+	        }
+	        else
+	        {
+                return findSymbolHelper(name, node.right);
+	        }
+   
+	    }
 		
 		
 		// Recursively locates an empty slot in the binary tree and inserts the node
